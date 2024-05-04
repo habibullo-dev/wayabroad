@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+
+    <!-- Favicons -->
+    <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
+    <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Responsive navbar-->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+            <a href="{{ url_for('views.home') }}" class="logo d-flex align-items-center me-auto">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                    <li><a href="{{ url_for('views.blog') }}" class="active">Blog</a></li>
+                    <li><a href="{{ url_for('views.university') }}">Programs</a></li>
+                    <li><a href="{{ url_for('views.contact') }}">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <a class="btn-getstarted" href="{{ url_for('views.register') }}">Get Started</a>
+
+        </div>
+    </header>
+    <!-- Page content-->
+    <div class="main">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1">Unlocking Your Future: Why Studying in South Korea is a
+                                Game-Changer</h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">Posted on May 2, 2024</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">#studyinkorea</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">#studentlife</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img class="img-fluid rounded"
+                                src="{{ url_for('static', filename='img/blog 1.jpg') }}" alt="Blog Image">
+                        </figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">South Korea, often known as the "Land of the Morning Calm," has become
+                                a beacon for international students, boasting a combination of rich culture, modernity,
+                                and exceptional education. Let's delve into why studying in South Korea could be the
+                                transformative experience you've been seeking.</p>
+                            <p class="fs-5 mb-4">Firstly, South Korea stands out globally for its exceptional education
+                                system. With over 400 universities and colleges, the country offers a plethora of
+                                options for students seeking higher education. Notably, institutions like Seoul National
+                                University, Korea University, and Yonsei University consistently rank among the top in
+                                global university rankings, attracting students from all corners of the world. In fact,
+                                South Korea's higher education system is so esteemed that it has a staggering
+                                international student population of over 160,000, reflecting its appeal on a global
+                                scale.</p>
+                            <p class="fs-5 mb-4">Moreover, South Korea's commitment to innovation and technology is
+                                unparalleled. The country is a global leader in technology and electronics, with
+                                companies like Samsung, LG, and Hyundai dominating the market. This innovation hub
+                                presents a goldmine of opportunities for students pursuing fields like engineering,
+                                computer science, and robotics. Notably, South Korea boasts an impressive investment in
+                                research and development, with expenditures exceeding 4% of its GDP, surpassing the
+                                likes of the United States and Japan. This investment translates into groundbreaking
+                                research opportunities for students, fostering an environment ripe for academic
+                                exploration and innovation.</p>
+                            <h2 class="fw-bolder mb-4 mt-5">Beyond academics...</h2>
+                            <p class="fs-5 mb-4">South Korea offers a dynamic and culturally rich environment. With its
+                                bustling metropolises, ancient palaces, and picturesque landscapes, South Korea provides
+                                a perfect blend of tradition and modernity. The country's rich cultural heritage is
+                                celebrated through various festivals and events throughout the year, offering students a
+                                chance to immerse themselves in Korean culture firsthand. Additionally, South Korea's
+                                cuisine, known for its bold flavors and diverse dishes, is a culinary adventure waiting
+                                to be explored by students from around the globe.</p>
+                            <p class="fs-5 mb-4">In conclusion, studying in South Korea offers a multifaceted experience
+                                that extends far beyond the classroom. With its world-class education system, commitment
+                                to innovation, and vibrant culture, South Korea provides students with a unique
+                                opportunity for personal and academic growth. By choosing to study in South Korea,
+                                you're not just investing in your education; you're embarking on a journey that will
+                                shape your future in ways you never thought possible. So why wait? Unlock your potential
+                                and discover the endless possibilities that await you in South Korea.
+                            </p>
+                        </section>
+                    </article>
+
+                    <!-- Comments section-->
+                    <!-- <section class="mb-5">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <!- - Comment form- ->
+                                <form class="mb-4"><textarea class="form-control" rows="3"
+                                        placeholder="Join the discussion and leave a comment!"></textarea></form>
+                                <!- - Comment with nested comments- ->
+                                <div class="d-flex mb-4">
+                                    <!- - Parent comment- ->
+                                    <div class="flex-shrink-0"><img class="rounded-circle"
+                                            src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Commenter Name</div>
+                                        If you're going to lead a space frontier, it has to be government; it'll never
+                                        be
+                                        private enterprise. Because the space frontier is dangerous, and it's expensive,
+                                        and
+                                        it has unquantified risks.
+                                        <!- - Child comment 1- ->
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0"><img class="rounded-circle"
+                                                    src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+                                            </div>
+                                            <div class="ms-3">
+                                                <div class="fw-bold">Commenter Name</div>
+                                                And under those conditions, you cannot establish a capital-market
+                                                evaluation
+                                                of that enterprise. You can't get investors.
+                                            </div>
+                                        </div>
+                                        <!- - Child comment 2- ->
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0"><img class="rounded-circle"
+                                                    src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+                                            </div>
+                                            <div class="ms-3">
+                                                <div class="fw-bold">Commenter Name</div>
+                                                When you put money directly to a problem, it makes a good headline.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!- - Single comment- ->
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0"><img class="rounded-circle"
+                                            src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Commenter Name</div>
+                                        When I look at the universe and all the ways the universe wants to kill us, I
+                                        find
+                                        it hard to reconcile that with statements of beneficence.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section> -->
+                </div>
+                <!-- Featured Blogs widget-->
+                <div class="col-lg-4 card mb-4">
+                    <div class="card-header py-2">Featured Blogs</div>
+                    <div class="card-body">
+                        <!-- Featured Blog 1 -->
+                        <div class="mb-4">
+                            <img class="img-fluid rounded" src="{{ url_for('static', filename='img/blog 2.jpg') }}"
+                                alt="Blog Image">
+                            <h5 class="mt-2">Embracing Life: The Experience of Living in South Korea as an International
+                                Student</h5>
+                            <p class="text-muted">Living in South Korea as an international student is an adventure like
+                                no other...</p>
+                            <a href="blog1.html" class="btn btn-primary">Learn More</a>
+                        </div>
+                        <!-- Featured Blog 2 -->
+                        <div class="mb-4">
+                            <img class="img-fluid rounded" src="{{ url_for('static', filename='img/blog 3.jpg') }}"
+                                alt="Blog Image"> alt=" Blog Image">
+                            <h5 class="mt-2">A Deep Dive into the South Korean Education System</h5>
+                            <p class="text-muted">The South Korean education system is renowned worldwide for its
+                                excellence and rigor...</p>
+                            <a href="blog2.html" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer-->
+    <footer class="py-5" style="background-color: #3d4d6a;">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Wayabroad, Inc. 2024</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Vendor JS Files -->
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/waypoints/noframework.waypoints.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+
+    <!-- Main JS File -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
+
+</html>
