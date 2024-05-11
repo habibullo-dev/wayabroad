@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Information</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
+    <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Responsive navbar-->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+            <a href="{{ url_for('views.home') }}" class="logo d-flex align-items-center me-auto">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                    <li><a href="{{ url_for('views.blog') }}">Blog</a></li>
+                    <li><a href="{{ url_for('views.university') }}" class="active">Programs</a></li>
+                    <li><a href="{{ url_for('views.contact') }}">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <a class="btn-getstarted" href="{{ url_for('auth.register') }}">Get Started</a>
+
+        </div>
+    </header>
+
+    <div class="container mt-5">
+        <h1 id="university-name"></h1>
+        <p id="university-description"></p>
+        <p>Website: <a id="website" href="#" target="_blank"></a></p>
+        <p>Ranking: <span id="ranking"></span></p>
+    
+        <div class="mt-3">
+          <h2>Requirements</h2>
+          <ul id="requirements"></ul>
+        </div>
+    
+        <div class="mt-3">
+          <h2>Korean Track</h2>
+          <ul id="korean-track"></ul>
+        </div>
+    
+        <div class="mt-3">
+          <h2>English Track</h2>
+          <p id="english-track"></p>
+        </div>
+    
+        <div class="mt-3">
+          <h3>Intake Periods</h3>
+          <p>Fall Intake: <span id="fall-intake"></span></p>
+          <p>Spring Intake: <span id="spring-intake"></span></p>
+        </div>
+    
+        <div class="mt-3">
+          <h3>Fees</h3>
+          <p>Application Fee: <span id="application-fee"></span></p>
+          <p>Tuition Fee: <span id="tuition-fee"></span></p>
+        </div>
+    
+        <p>Application Link: <a id="application-link" href="#" target="_blank"></a></p>
+      </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-6 col-md-6 footer-about">
+                    <h4 class="text-uppercase"><span class="sitename">Wayabroad</span></h4>
+                    <p>Seoul, South Korea</p>
+                    <p><strong>Phone:</strong> +82 10 9575 8404</p>
+                    <p><strong>Email:</strong> info@example.com</p>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <h4 class="text-uppercase">Follow Us</h4>
+                    <p>Stay updated with our latest news and offers. Connect with us on social media.</p>
+                    <div class="social-links d-flex">
+                        <a href="" class="btn btn-social-icon btn-twitter"><i class="bi bi-telegram"></i></a>
+                        <a href="" class="btn btn-social-icon btn-facebook"><i class="bi bi-twitter"></i></a>
+                        <a href="" class="btn btn-social-icon btn-instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="" class="btn btn-social-icon btn-linkedin"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container copyright text-center mt-4">
+            <p>© 2024 <strong class="px-1 sitename">Wayabroad, Inc.</strong></p>
+            <div class="credits">
+                Made by <a href="https://www.linkedin.com/in/habibullo-chutboev/">Habibullo Dev</a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="{{ url_for('static', filename='js/more-info.js') }}"></script>
+</body>
+
+</html>

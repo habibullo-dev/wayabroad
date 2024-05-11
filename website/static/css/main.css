@@ -1,6 +1,8 @@
 /* Fonts */
 :root {
-  --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Jost", sans-serif;
   --nav-font: "Poppins", sans-serif;
 }
@@ -190,7 +192,7 @@ h6 {
     padding-right: 0;
   }
 
-  .navmenu li:hover>a,
+  .navmenu li:hover > a,
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
@@ -229,11 +231,11 @@ h6 {
 
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
+  .navmenu .dropdown ul li:hover > a {
     color: var(--nav-dropdown-hover-color);
   }
 
-  .navmenu .dropdown:hover>ul {
+  .navmenu .dropdown:hover > ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
@@ -245,7 +247,7 @@ h6 {
     visibility: hidden;
   }
 
-  .navmenu .dropdown .dropdown:hover>ul {
+  .navmenu .dropdown .dropdown:hover > ul {
     opacity: 1;
     top: 0;
     left: -100%;
@@ -279,7 +281,7 @@ h6 {
   }
 
   .navmenu .megamenu ul li a,
-  .navmenu .megamenu ul li:hover>a {
+  .navmenu .megamenu ul li:hover > a {
     padding: 10px 20px;
     font-size: 15px;
     color: var(--nav-dropdown-color);
@@ -291,7 +293,7 @@ h6 {
     color: var(--nav-dropdown-hover-color);
   }
 
-  .navmenu .megamenu:hover>ul {
+  .navmenu .megamenu:hover > ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
@@ -399,8 +401,8 @@ h6 {
     background-color: rgba(33, 37, 41, 0.1);
   }
 
-  .navmenu .dropdown>.dropdown-active,
-  .navmenu .megamenu>.dropdown-active {
+  .navmenu .dropdown > .dropdown-active,
+  .navmenu .megamenu > .dropdown-active {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
   }
@@ -427,7 +429,7 @@ h6 {
     transition: 0.3s;
   }
 
-  .mobile-nav-active .navmenu>ul {
+  .mobile-nav-active .navmenu > ul {
     display: block;
   }
 }
@@ -629,7 +631,7 @@ h6 {
 # Global Page Titles & Breadcrumbs
 --------------------------------------------------------------*/
 .page-title {
-  --background-color: rgba(var(--default-color-rgb), .04);
+  --background-color: rgba(var(--default-color-rgb), 0.04);
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 20px 0;
@@ -651,11 +653,11 @@ h6 {
   font-size: 14px;
 }
 
-.page-title .breadcrumbs ol li+li {
+.page-title .breadcrumbs ol li + li {
   padding-left: 10px;
 }
 
-.page-title .breadcrumbs ol li+li::before {
+.page-title .breadcrumbs ol li + li::before {
   content: "/";
   display: inline-block;
   padding-right: 10px;
@@ -675,7 +677,6 @@ section,
 }
 
 @media (max-width: 1199px) {
-
   section,
   .section {
     scroll-margin-top: 66px;
@@ -841,7 +842,7 @@ section,
 # Clients 2 Section
 --------------------------------------------------------------*/
 .clients-2 {
-  --background-color: rgba(var(--heading-color-rgb), .05);
+  --background-color: rgba(var(--heading-color-rgb), 0.05);
   padding: 12px 0;
 }
 
@@ -915,12 +916,11 @@ section,
   transform: translate(5px, 0);
 }
 
-
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
 .services {
-  --background-color: rgba(var(--heading-color-rgb), .05);
+  --background-color: rgba(var(--heading-color-rgb), 0.05);
 }
 
 .services .service-item {
@@ -1134,7 +1134,7 @@ section,
 # Faq 2 Section
 --------------------------------------------------------------*/
 .faq-2 {
-  --background-color: rgba(var(--heading-color-rgb), .05);
+  --background-color: rgba(var(--heading-color-rgb), 0.05);
 }
 
 .faq-2 .faq-container {
@@ -1222,4 +1222,51 @@ section,
 .faq-2 .faq-container .faq-active .faq-toggle {
   transform: rotate(90deg);
   color: var(--accent-color);
+}
+
+/*---------- University page ----------------*/
+.university-card {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(20px);
+}
+
+.university-card:hover {
+  transform: scale(1.02) translateY(0);
+}
+
+.university-card.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fixed-height {
+  height: 15rem; /* adjust as needed */
+  object-fit: cover; /* this will ensure the aspect ratio of the image is maintained */
+}
+
+.card-footer {
+  background: none;
+  border-top: none;
+}
+
+.btn-primary {
+  background-color: #007bff; /* Change to a color that stands out */
+  border-color: #007bff; /* Change to a color that stands out */
+}
+
+
+/*---------- Blog page ----------------*/
+
+.card-body {
+  position: sticky;
+  top: 0;
+}
+
+.card-body h2 {
+  margin-bottom: 1em;
+}
+
+.card-body h3 {
+  margin-bottom: 1em;
 }

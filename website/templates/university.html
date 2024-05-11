@@ -67,116 +67,9 @@
             </form>
 
             <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
-                <div class="col">
-                    <div class="card h-100 university-card">
-                        <img src="{{ url_for('static', filename='images/university.jpg') }}" class="card-img-top"
-                            alt="university-image">
-                        <div class="card-body">
-                            <h5 class="card-title university-name"><i class="fas fa-university"></i> University Name
-                            </h5>
-                            <p class="card-text brief-info">Some quick example text to build on the card title and make
-                                up the bulk of the card's content.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> Location: City/Suburb</li>
-                            <li class="list-group-item"><i class="fas fa-calendar-alt"></i> Application Period: Date
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 university-card">
-                        <img src="{{ url_for('static', filename='images/university.jpg') }}" class="card-img-top"
-                            alt="university-image">
-                        <div class="card-body">
-                            <h5 class="card-title university-name"><i class="fas fa-university"></i> University Name
-                            </h5>
-                            <p class="card-text brief-info">Some quick example text to build on the card title and make
-                                up the bulk of the card's content.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> Location: City/Suburb</li>
-                            <li class="list-group-item"><i class="fas fa-calendar-alt"></i> Application Period: Date
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
+                <!-- Cards will be appended here by JavaScript -->
             </div>
-            <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
-                <div class="col">
-                    <div class="card h-100 university-card">
-                        <img src="{{ url_for('static', filename='images/university.jpg') }}" class="card-img-top"
-                            alt="university-image">
-                        <div class="card-body">
-                            <h5 class="card-title university-name"><i class="fas fa-university"></i> University Name
-                            </h5>
-                            <p class="card-text brief-info">Some quick example text to build on the card title and make
-                                up the bulk of the card's content.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> Location: City/Suburb</li>
-                            <li class="list-group-item"><i class="fas fa-calendar-alt"></i> Application Period: Date
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 university-card">
-                        <img src="{{ url_for('static', filename='images/university.jpg') }}" class="card-img-top"
-                            alt="university-image">
-                        <div class="card-body">
-                            <h5 class="card-title university-name"><i class="fas fa-university"></i> University Name
-                            </h5>
-                            <p class="card-text brief-info">Some quick example text to build on the card title and make
-                                up the bulk of the card's content.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> Location: City/Suburb</li>
-                            <li class="list-group-item"><i class="fas fa-calendar-alt"></i> Application Period: Date
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
-                <div class="col">
-                    <div class="card h-100 university-card">
-                        <img src="{{ url_for('static', filename='images/university.jpg') }}" class="card-img-top"
-                            alt="university-image">
-                        <div class="card-body">
-                            <h5 class="card-title university-name"><i class="fas fa-university"></i> University Name
-                            </h5>
-                            <p class="card-text brief-info">Some quick example text to build on the card title and make
-                                up the bulk of the card's content.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> Location: City/Suburb</li>
-                            <li class="list-group-item"><i class="fas fa-calendar-alt"></i> Application Period: Date
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 university-card">
-                        <img src="{{ url_for('static', filename='images/university.jpg') }}" class="card-img-top"
-                            alt="university-image">
-                        <div class="card-body">
-                            <h5 class="card-title university-name"><i class="fas fa-university"></i> University Name
-                            </h5>
-                            <p class="card-text brief-info">Some quick example text to build on the card title and make
-                                up the bulk of the card's content.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> Location: City/Suburb</li>
-                            <li class="list-group-item"><i class="fas fa-calendar-alt"></i> Application Period: Date
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
+            <button class="btn btn-outline-primary btn-lg my-3 load-more-btn">Load More</button>
         </div>
     </main>
 
@@ -226,7 +119,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ url_for('static', filename='js/university.js') }}"></script>
 </body>
 
 </html>
