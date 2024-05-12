@@ -12,15 +12,15 @@ connection = f"mongodb+srv://toby:{password}@wayabroad.ytg2mkg.mongodb.net/?retr
 
 client = MongoClient(connection)
 
-with open("data.json", "r") as f:
-    data = json.load(f)
-
 # Get a reference to the MongoDB collection
-db = client['blogsDB']  # replace 'your_database_name' with the name of your database
-collection = db['blogs']  # replace 'your_collection_name' with the name of your collection
+db = client['universityDB']  # replace 'your_database_name' with the name of your database
 
-# Insert the data into the collection
-collection.insert_many(data)
+# Get a reference to the universities collection
+universities_collection = db['universities']
+
+
+# Remove the english_track fields from all documents
+universities_collection.update_many({}, {'$unset': {'english_track ': ""}})
 
 
 # db = client['universityDB']  # replace 'yourDatabaseName' with the name of your database
