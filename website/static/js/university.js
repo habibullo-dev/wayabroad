@@ -2,33 +2,165 @@ let currentIndex = 0;
 let isLoadMoreEventAttached = false;
 
 // Function to create a card
-// Function to create a card
 function createCard(card) {
   let imagePath = `./static/img/university/${card.university_name}.png`;
+  let logoPath = `./static/img/university/${card.university_name}_logo.png`;
   let fallbackImagePath = `./static/img/university/default.png`; // Fallback image
+  console.log(card.requirements);
 
   return `
-      <div class="col">
-          <div class="card h-100 university-card">
-          <img src="${imagePath}" onerror="this.onerror=null; this.src='${fallbackImagePath}';" class="card-img-top fixed-height" alt="Image of ${
+  <div class="col">
+      <div class="card h-100 university-card">
+      <img src="${imagePath}" onerror="this.onerror=null; this.src='${fallbackImagePath}';" class="card-img-top fixed-height" alt="Image of ${
     card.university_name
   }">
-          <div class="card-body">
-                  <h5 class="card-title university-name"><i class="fas fa-university"></i> ${
-                    card.university_name
-                  }</h5>
-                  <p class="card-text brief-info">${
-                    card.university_description
-                  }</p>
-              </div>
-              <div class="card-footer">
-              <a href="more-info?university=${encodeURIComponent(
+      <div class="card-body">
+              <h5 class="card-title university-name"><i class="fas fa-university"></i> ${
                 card.university_name
-              )}" class="btn btn-primary mb-3">Learn More</a>
-              </div>
+              }</h5>
+              <p class="card-text brief-info">${card.university_description}</p>
+          </div>
+          <div class="card-footer">
+          <button type="button" class="btn btn-primary mb-3 loadUnibtn" data-university="${
+            card.university_name
+          }" data-mdb-modal-init data-mdb-target="#modal-${card.university_name.replace(
+    /\s+/g,
+    ""
+  )}">Learn More</button>
           </div>
       </div>
-  `;
+  </div>
+
+  <!-- Modal -->
+<div class="modal top fade uniModal" id="modal-${card.university_name.replace(
+    /\s+/g,
+    ""
+  )}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            
+                       
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-mdb-toggle="tab" href="#overview-${card.university_name.replace(
+                          /\s+/g,
+                          ""
+                        )}">Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-mdb-toggle="tab" href="#application-${card.university_name.replace(
+                          /\s+/g,
+                          ""
+                        )}">Korean Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-mdb-toggle="tab" href="#application-${card.university_name.replace(
+                          /\s+/g,
+                          ""
+                        )}">English Programs</a>
+                    </li>
+          
+                </ul>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+                
+            </div>
+            <div class="modal-body">
+    <div class="tab-content">
+        <div class="tab-pane active" id="overview-${card.university_name.replace(
+          /\s+/g,
+          ""
+        )}">
+            <img src="${logoPath}" onerror="this.onerror=null; this.src='${fallbackImagePath}';" class="logo-img fixed-height" alt="Logo of ${
+    card.university_name
+  }">
+            <h5 class="university-name">${card.university_name}</h5>
+            <p class="university-description">${card.university_description}</p>
+            <h5 class"university-ranking">QS Ranking: ${card.ranking}</h5>
+            <br>
+            <h5 class="requirements">Requirements:</h5>
+            
+            <ul class="university-requirements">
+                ${
+                  Array.isArray(card.requirements)
+                    ? card.requirements
+                        .map((requirement) => `<li>${requirement.trim()}</li>`)
+                        .join("")
+                    : card.requirements
+                        .split(/\r?\n/)
+                        .map((requirement) => `<li>${requirement.trim()}</li>`)
+                        .join("")
+                }
+            </ul>
+
+            <h5 class="university-website">Website:</h5>
+            <p class="website"><a href="${card.website}" target="_blank">${
+    card.website
+  }</a></p>
+
+            <h5 class="application-period">Application Period:</h5>
+            <ul class="intake-period">
+                <li><strong>Fall Intake:</strong></li>
+                ${card.fall_intake
+                  .split(";")
+                  .map((intake) => `<li>${intake.trim()}</li>`)
+                  .join("")}
+                <li><strong>Spring Intake:</strong></li>
+                ${card.spring_intake
+                  .split(";")
+                  .map((intake) => `<li>${intake.trim()}</li>`)
+                  .join("")}
+            </ul>
+
+            <h5 class="tuition-fees">Tuition Fees:</h5>
+            <p class="fees">${card.tuition_fee}</p>
+
+            <h5 class="application-link">Application Link:</h5>
+            <p class="link"><a href="${
+              card.application_link
+            }" target="_blank">${card.application_link}</a></p>
+
+            <h5 class="application-fees">Application Fees:</h5>
+            <p class="fees">${card.application_fee}</p>
+        </div>
+        <!-- Add more tab panes as needed -->
+    </div>
+</div>
+            </div>
+        </div>
+
+  <!-- ... -->
+`;
+}
+
+// Function to fetch data for a specific university and insert it into the HTML
+function fetchUniversityDataAndInsertIntoHTML(universityName) {
+  console.log("University:", universityName);
+
+  // Fetch data for this university
+  fetch(`/university/data?university=${encodeURIComponent(universityName)}`)
+    .then((response) => response.json())
+    .then((data) => {
+      const universityData = data.find(
+        (item) => item.university_name === universityName
+      );
+
+      // Get the modal for this university
+      const modal = document.querySelector(
+        `#modal-${universityName.replace(/\s+/g, "")}`
+      );
+
+      // Insert data into the HTML
+      modal.querySelector(".university-name").textContent =
+        universityData.university_name;
+      modal.querySelector(".university-description").textContent =
+        universityData.university_description;
+      // Insert more data as needed
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
 // Function to load cards
@@ -47,8 +179,36 @@ function loadCards(data) {
       card.classList.add("loaded");
     });
   }, 100);
-}
 
+  // Initialize modals
+  const modals = row.querySelectorAll(".modal");
+  modals.forEach((modal) => {
+    new mdb.Modal(modal);
+  });
+
+  // Attach event listeners to buttons
+  const buttons = row.querySelectorAll(".btn");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const universityName = button.getAttribute("data-university");
+      if (universityName) {
+        const modal = new mdb.Modal(
+          document.getElementById(`modal-${universityName.replace(/\s+/g, "")}`)
+        );
+        modal.show();
+      }
+    });
+  });
+
+  // Attach event listeners to new buttons
+  const newButtons = row.querySelectorAll(".loadUnibtn");
+  newButtons.forEach((button) => {
+    const universityName = button.dataset.university;
+    button.addEventListener("click", () => {
+      fetchUniversityDataAndInsertIntoHTML(universityName);
+    });
+  });
+}
 // Function to fetch data and load cards
 function fetchDataAndLoadCards() {
   // Disable "Load More" button
@@ -92,4 +252,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     .addEventListener("click", fetchDataAndLoadCards);
 });
 
-
+// Attach event listeners to buttons
+const buttons = document.querySelectorAll(".loadUnibtn");
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const universityName = button.dataset.university;
+    fetchUniversityDataAndInsertIntoHTML(universityName);
+  });
+});

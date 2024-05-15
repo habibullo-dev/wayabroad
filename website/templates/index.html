@@ -31,15 +31,11 @@
 </head>
 
 <body>
-
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
       <a href="{{ url_for('views.home') }}" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="{{ url_for('static', filename='img/logo.png') }}" alt="">
       </a>
-
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{{ url_for('views.home') }}" class="active">Home</a></li>
@@ -150,7 +146,7 @@
     <section id="services" class="services section">
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <div class="container text-center" data-aos="fade-up">
         <h2>Application Journey</h2>
         <p>Join our four-step application process for a smooth academic journey.</p>
       </div><!-- End Section Title -->
@@ -219,83 +215,11 @@
 
     </section><!-- /Call To Action Section -->
 
-    <!-- Featured Blogs Section -->
-    <section id="blogs" class="blogs section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Featured Blogs</h2>
-        <p>Check out our latest blogs</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper">
-          <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 600,
-          "autoplay": {
-            "delay": 5000
-          },
-          "slidesPerView": "auto",
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          }
-        }
-      </script>
-          <div class="swiper-wrapper">
-
-            <!-- Blog 1 -->
-            <div class="swiper-slide">
-              <div class="blog-item">
-                <img src="{{ url_for('static', filename='img/blog 1.jpg') }}" class="blog-img" alt="">
-                <h3>Unlocking Your Future: Why Studying in South Korea is a Game-Changer</h3>
-                <p>
-                  South Korea, often known as the "Land of the Morning Calm," has become a beacon for international
-                  students, boasting a combination of rich culture, modernity, and exceptional education</p>
-                <a href="{{ url_for('views.blog') }}">Read More</a>
-              </div>
-            </div><!-- End Blog 1 -->
-
-            <!-- Blog 2 -->
-            <div class="swiper-slide">
-              <div class="blog-item">
-                <img src="{{ url_for('static', filename='img/blog 2.jpg') }}" class="blog-img" alt="">
-                <h3>Embracing Life: The Experience of Living in South Korea as an International Student</h3>
-                <p>Living in South Korea as an international student is an adventure like no other. From its vibrant
-                  cities to its rich cultural heritage, South Korea offers a unique and immersive experience that will
-                  leave a lasting impact on your life</p>
-                <a href="{{ url_for('views.blog') }}">Read More</a>
-              </div>
-            </div><!-- End Blog 2 -->
-
-            <!-- Blog 3 -->
-            <div class="swiper-slide">
-              <div class="blog-item">
-                <img src="{{ url_for('static', filename='img/blog 3.jpg') }}" class="blog-img" alt="">
-                <h3>A Deep Dive into the South Korean Education System</h3>
-                <p>The South Korean education system is renowned worldwide for its excellence and rigor, making it a
-                  compelling choice for both domestic and international students seeking top-notch education</p>
-                <a href="{{ url_for('views.blog') }}">Read More</a>
-              </div>
-            </div><!-- End Blog 3 -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Featured Blogs Section -->
-
     <!-- Faq 2 Section -->
     <section id="faq-2" class="faq-2 section">
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <div class="container text-center" data-aos="fade-up">
         <h2>Frequently Asked Questions</h2>
         <p>Here are some of the most frequently asked questions about Wayabroad.</p>
       </div><!-- End Section Title -->
@@ -374,10 +298,8 @@
     </div>
 
     <div class="container copyright text-center mt-4">
+      <p>All right reserved</p>
       <p>© 2024 <strong class="px-1 sitename">Wayabroad, Inc.</strong></p>
-      <div class="credits">
-        Made by <a href="https://www.linkedin.com/in/habibullo-chutboev/">Habibullo Dev</a>
-      </div>
     </div>
   </footer>
   <!-- End Footer -->
