@@ -6,7 +6,6 @@ function createCard(card) {
   let imagePath = `./static/img/university/${card.university_name}.png`;
   let logoPath = `./static/img/university/${card.university_name}_logo.png`;
   let fallbackImagePath = `./static/img/university/default.png`; // Fallback image
-  console.log(card.requirements);
 
   return `
   <div class="col">
@@ -38,30 +37,27 @@ function createCard(card) {
   )}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-            
-                       
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-mdb-toggle="tab" href="#overview-${card.university_name.replace(
-                          /\s+/g,
-                          ""
-                        )}">Overview</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-mdb-toggle="tab" href="#application-${card.university_name.replace(
-                          /\s+/g,
-                          ""
-                        )}">Korean Programs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-mdb-toggle="tab" href="#application-${card.university_name.replace(
-                          /\s+/g,
-                          ""
-                        )}">English Programs</a>
-                    </li>
-          
-                </ul>
+            <div class="modal-header">       
+            <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-mdb-toggle="tab" href="#overview-${card.university_name.replace(
+                  /\s+/g,
+                  ""
+                )}">Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-mdb-toggle="tab" href="#korean-${card.university_name.replace(
+                  /\s+/g,
+                  ""
+                )}">Korean Programs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-mdb-toggle="tab" href="#english-${card.university_name.replace(
+                  /\s+/g,
+                  ""
+                )}">English Programs</a>
+            </li>
+        </ul>
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
                 
@@ -124,24 +120,41 @@ function createCard(card) {
             <h5 class="application-fees">Application Fees:</h5>
             <p class="fees">${card.application_fee}</p>
         </div>
-        <!-- Add more tab panes as needed -->
+        <div class="tab-pane" id="korean-${card.university_name.replace(
+          /\s+/g,
+          ""
+        )}">
+            <div class="korean-programs">
+              <!-- Korean programs will be populated here -->
+            </div>
+        </div>
+        <div class="tab-pane" id="english-${card.university_name.replace(
+          /\s+/g,
+          ""
+        )}">
+            <div class="english-programs">
+              <!-- English programs will be populated here -->
+            </div>
+        </div>
     </div>
 </div>
             </div>
         </div>
-
+  </div>
   <!-- ... -->
 `;
 }
 
 // Function to fetch data for a specific university and insert it into the HTML
 function fetchUniversityDataAndInsertIntoHTML(universityName) {
-  console.log("University:", universityName);
+  console.log(`Fetching data for university: ${universityName}`);
 
   // Fetch data for this university
   fetch(`/university/data?university=${encodeURIComponent(universityName)}`)
     .then((response) => response.json())
     .then((data) => {
+      console.log(`Fetched university data:`, data);
+
       const universityData = data.find(
         (item) => item.university_name === universityName
       );
@@ -156,7 +169,48 @@ function fetchUniversityDataAndInsertIntoHTML(universityName) {
         universityData.university_name;
       modal.querySelector(".university-description").textContent =
         universityData.university_description;
-      // Insert more data as needed
+
+      // Fetch and insert Korean and English programs
+      fetch(`/majors/data?university=${encodeURIComponent(universityName)}`)
+        .then((response) => response.json())
+        .then((programData) => {
+          programData = programData[0][universityName];
+          console.log(`Fetched program data:`, programData);
+
+          const koreanPrograms = modal.querySelector(".korean-programs");
+          const englishPrograms = modal.querySelector(".english-programs");
+
+          // Clear existing data
+          koreanPrograms.innerHTML = "";
+          englishPrograms.innerHTML = "";
+
+          Object.entries(programData).forEach(([trackName, trackData]) => {
+            if (trackName.toLowerCase().includes("korean")) {
+              Object.entries(trackData).forEach(([collegeName, majors]) => {
+                let content = `<h3>${collegeName}</h3>`;
+                majors.forEach((major) => {
+                  content += `<p>${major}</p>`;
+                });
+                koreanPrograms.innerHTML += content;
+              });
+            } else if (trackName.toLowerCase().includes("english")) {
+              Object.entries(trackData).forEach(([collegeName, majors]) => {
+                let content = `<h3>${collegeName}</h3>`;
+                majors.forEach((major) => {
+                  content += `<p>${major}</p>`;
+                });
+                englishPrograms.innerHTML += content;
+              });
+            }
+          });
+
+          console.log(
+            `Updated modal content for university: ${universityName}`
+          );
+        })
+        .catch((error) => {
+          console.error("Error fetching programs:", error);
+        });
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -209,6 +263,7 @@ function loadCards(data) {
     });
   });
 }
+
 // Function to fetch data and load cards
 function fetchDataAndLoadCards() {
   // Disable "Load More" button
@@ -218,6 +273,8 @@ function fetchDataAndLoadCards() {
   fetch("/university/data")
     .then((response) => response.json())
     .then((data) => {
+      console.log(`Fetched cards data:`, data);
+
       // Check if there is more data to load
       if (currentIndex >= data.length) {
         loadMoreButton.disabled = true;
@@ -250,13 +307,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document
     .querySelector(".load-more-btn")
     .addEventListener("click", fetchDataAndLoadCards);
-});
-
-// Attach event listeners to buttons
-const buttons = document.querySelectorAll(".loadUnibtn");
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const universityName = button.dataset.university;
-    fetchUniversityDataAndInsertIntoHTML(universityName);
-  });
 });

@@ -4,20 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Search</title>
+    <title>Our team</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
     <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
     <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-    
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <!-- Vendor CSS Files -->
     <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -45,9 +52,8 @@
                 <ul>
                     <li><a href="{{ url_for('views.home') }}">Home</a></li>
                     <li><a href="{{ url_for('views.blog') }}">Blog</a></li>
-                    <li><a href="{{ url_for('views.university') }}" class="active">Programs</a></li>
-                    <li><a href="{{ url_for('views.team') }}">Our team</a></li>
-
+                    <li><a href="{{ url_for('views.university') }}">Programs</a></li>
+                    <li><a href="{{ url_for('views.team') }}" class="active">Our team</a></li>
                     <li><a href="{{ url_for('views.contact') }}">Contact</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -58,24 +64,70 @@
         </div>
     </header>
 
-    <main class="mt-5 pt-5">
-        <div class="container text-center">
-            <h2 class="py-3">Keyword Search:</h2>
-            <form class="my-4">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search by university name">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
-                </div>
-            </form>
 
-            <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
-                <!-- Cards will be appended here by JavaScript -->
+    <section class="our-webcoderskull padding-lg vh-100">
+        <div class="container">
+            <div class="row heading heading-icon">
+                <h2>Our Team</h2>
             </div>
-            <button class="btn btn-outline-primary btn-lg my-3 load-more-btn">Load More</button>
+            <ul class="row">
+                <li class="col-12 col-md-6 col-lg-3">
+                    <div class="cnt-block equal-hight" style="height: 349px;">
+                        <figure><img src="http://www.webcoderskull.com/img/team4.png" class="img-responsive" alt="">
+                        </figure>
+                        <h3><a href="http://www.webcoderskull.com/">Web coder skull</a></h3>
+                        <p>Freelance Web Developer</p>
+                        <ul class="follow-us clearfix">
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="col-12 col-md-6 col-lg-3">
+                    <div class="cnt-block equal-hight" style="height: 349px;">
+                        <figure><img src="http://www.webcoderskull.com/img/team1.png" class="img-responsive" alt="">
+                        </figure>
+                        <h3><a href="#">Kappua </a></h3>
+                        <p>Freelance Web Developer</p>
+                        <ul class="follow-us clearfix">
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="col-12 col-md-6 col-lg-3">
+                    <div class="cnt-block equal-hight" style="height: 349px;">
+                        <figure><img src="http://www.webcoderskull.com/img/team4.png" class="img-responsive" alt="">
+                        </figure>
+                        <h3><a href="http://www.webcoderskull.com/">Manish </a></h3>
+                        <p>Freelance Web Developer</p>
+                        <ul class="follow-us clearfix">
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="col-12 col-md-6 col-lg-3">
+                    <div class="cnt-block equal-hight" style="height: 349px;">
+                        <figure><img src="http://www.webcoderskull.com/img/team2.png" class="img-responsive" alt="">
+                        </figure>
+                        <h3><a href="http://www.webcoderskull.com/">Atul </a></h3>
+                        <p>Freelance Web Developer</p>
+                        <ul class="follow-us clearfix">
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
+
     <footer id="footer" class="footer">
         <div class="container footer-top">
             <div class="row gy-4">
@@ -106,29 +158,4 @@
             </div>
         </div>
     </footer>
-    <!-- End Footer -->
-
-    <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
-
-    <!-- Vendor JS Files -->
-    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/waypoints/noframework.waypoints.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-
-    <!-- Main JS File -->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/university.js') }}"></script>
 </body>
-
-</html>

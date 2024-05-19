@@ -71,7 +71,7 @@ data = {
     },
     "Chonnam National University": {
         "english_track": {
-            "Departments": "Not available"
+            "Departments": ["Not available"]
         },
         "korean_track": {
             "AI Convergence": [
@@ -201,7 +201,7 @@ data = {
     },
     "Chung Ang University": {
         "english_track": {
-            "Departments": "Chung Ang University does not offer courses in English, but you can apply with your English language test score and once you get accepted, you will required to study Korean language program first."
+            "Departments": ["Chung Ang University does not offer courses in English, but you can apply with your English language test score and once you get accepted, you will required to study Korean language program first."]
         },
         "korean_track": {
             "Humanities": [
@@ -360,7 +360,7 @@ data = {
             ]
         },
         "korean_track": {
-            "Departments": "Please refer to DGIST website in Korean"
+            "Departments": ["Please refer to DGIST website in Korean"]
         }
     },
     "Ewha Womans University": {
@@ -448,7 +448,7 @@ data = {
             ]
         },
         "korean_track": {
-            "Departments": "Please refer to GIST website in Korean."
+            "Departments": ["Please refer to GIST website in Korean."]
         }
     },
     "Hanyang University": {
@@ -537,7 +537,7 @@ data = {
             ]
         }
     },
-    "HUFS": {
+    "Hankuk University of Foreign Studies": {
         "english_track": {
             "College of English": [
                 "English Linguistics and Language Technology (ELLT)"
@@ -891,7 +891,7 @@ data = {
     },
     "Konkuk University": {
         "english_track": {
-            "Departments": "Not available"
+            "Departments": ["Not available"]
         },
         "korean_track": {
             "College of Art and Design": [
@@ -1142,7 +1142,7 @@ data = {
             ]
         }
     },
-    "Kyungpook University": {
+    "Kyungpook National University": {
         "english_track": {
             "Departments": [
                 "International Studies Department"

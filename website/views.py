@@ -36,9 +36,19 @@ def university():
 
 @views.route('/university/data')
 def university_data():
-    universityDB = universitiesDB.universities.find()  # replace 'universities' with your collection name
+    universityDB = universitiesDB.universities.find()  
     data = [doc for doc in universityDB]
     return dumps(data)  # convert data to JSON string
+
+@views.route('/majors/data')
+def majors_data():
+    majorsDB = universitiesDB.majorsDB.find()  
+    data = [doc for doc in majorsDB]
+    return dumps(data)  # convert data to JSON string
+
+@views.route('/team')
+def team():
+    return render_template('team.html')
 
 @views.route('/contact')
 def contact():
