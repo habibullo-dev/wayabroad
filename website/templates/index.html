@@ -46,7 +46,11 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="{{ url_for('auth.register') }}">Get Started</a>
+      {% if not current_user.is_authenticated %}
+           <a class="btn-getstarted" href="{{ url_for('auth.register') }}">Get Started</a>
+           {% else %}
+           <a class="btn-getstarted" href="{{ url_for('auth.logout') }}">Log Out</a>
+           {% endif %}
 
     </div>
   </header>
@@ -61,7 +65,9 @@
             <h1 class="">Apply to South Korean universities with Wayabroad in one place</h1>
             <p class="">Where your achievements open doors worldwide </p>
             <div class="d-flex">
+              {% if not current_user.is_authenticated %}
               <a href="{{ url_for('auth.register') }}" class=" btn-get-started">Get Started</a>
+              {% endif %}
               <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
                 class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch
                   Video</span></a>

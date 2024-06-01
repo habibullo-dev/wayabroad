@@ -143,8 +143,8 @@ def signin():
 @auth.route('/logout')
 def logout():
     logout_user()
-    flash('You have been logged out.', 'success')
-    return redirect(url_for('auth.login'))
+    #flash('You have been logged out.', 'success')
+    return redirect(url_for('views.home'))
 
 @auth.route('/forgot-password')
 def forgot_password():

@@ -28,14 +28,17 @@ def create_app():
 
     login_manager = LoginManager()
     login_manager.init_app(app)
-
-    @login_manager.user_loader
-    def load_user(user_id):
-        return collection.find_one({"_id": user_id})
+   
 
     from .views import views
     from .auth import auth
-
+    @login_manager.user_loader
+    def load_user(user_id):
+        user_data = collection.find_one({"_id": user_id})
+        if user_data:
+            from .auth import User
+            return User(user_data) # grabbing user data from database
+        return None
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(views, url_prefix='/')
 
